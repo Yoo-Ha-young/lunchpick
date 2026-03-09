@@ -1,0 +1,33 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "rooms": {
+      "$roomId": {
+        ".read": true,
+        ".write": true,
+        "pickHistory": {
+          ".indexOn": ["pickedAt", "placeId"]
+        }
+      }
+    },
+    "accounts": {
+      "$username": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "profiles": {
+      "$userId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "user-rooms": {
+      "$userId": {
+        ".read": true,
+        ".write": true
+      }
+    }
+  }
+}

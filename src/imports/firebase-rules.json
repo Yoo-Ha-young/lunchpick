@@ -1,0 +1,25 @@
+
+
+
+{
+  "rules": {
+    "accounts": {
+      "$username": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "rooms": {
+      "$roomId": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "user-rooms": {
+      "$userId": {
+        ".read": true,
+        ".write": true
+      }
+    }
+  }
+}
