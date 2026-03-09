@@ -93,19 +93,26 @@ Realtime Database 탭에서 "규칙" 탭으로 이동하여 다음 규칙을 적
 
 ## 5. 프로젝트에 설정 적용
 
-`/src/app/firebaseConfig.ts` 파일을 열고 다음 정보를 입력하세요:
+프로젝트 루트에 `.env` 파일을 만들고 Firebase 값을 입력하세요:
 
-```typescript
-const firebaseConfig = {
-  apiKey: "AIzaSy...",                                    // 여기에 복사한 값 붙여넣기
-  authDomain: "your-project.firebaseapp.com",
-  databaseURL: "https://your-project-default-rtdb.firebaseio.com",  // Realtime Database URL
-  projectId: "your-project",
-  storageBucket: "your-project.firebasestorage.app",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abc123"
-};
+```bash
+cp .env.example .env
 ```
+
+`.env` 파일을 열어 Firebase 콘솔에서 복사한 값으로 채우세요:
+
+```
+VITE_FIREBASE_API_KEY=AIzaSy...
+VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+VITE_FIREBASE_DATABASE_URL=https://your-project-default-rtdb.firebaseio.com
+VITE_FIREBASE_PROJECT_ID=your-project
+VITE_FIREBASE_STORAGE_BUCKET=your-project.firebasestorage.app
+VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+VITE_FIREBASE_APP_ID=1:123456789:web:abc123
+VITE_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+**Netlify 배포 시**: 환경 변수에 위 `VITE_*` 항목을 모두 추가하세요.
 
 **중요**: `databaseURL`을 반드시 입력해야 합니다!
 - Realtime Database 페이지에서 복사할 수 있습니다.

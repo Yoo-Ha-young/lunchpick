@@ -1,39 +1,30 @@
 /**
  * Firebase 설정 파일
- * 
- * ⚠️ 중요: 아래 설정을 실제 Firebase 프로젝트 정보로 교체해야 합니다!
- * 
- * 설정 방법:
- * 1. https://console.firebase.google.com/ 에서 프로젝트 생성
- * 2. Realtime Database 활성화
- * 3. 프로젝트 설정 > 일반 > 하단 "내 앱" > 웹 앱 추가
- * 4. "Firebase SDK 스니펫" > "구성" 복사하여 아래에 붙여넣기
- * 
- * 자세한 가이드: /FIREBASE_SETUP.md 참고
+ * 환경변수(.env)에서 로드. 프로젝트 루트 .env.example 참고.
+ * 자세한 가이드: /FIREBASE_SETUP.md
  */
 
 import { initializeApp, type FirebaseApp } from 'firebase/app';
 import { getDatabase, type Database } from 'firebase/database';
 import { getAuth, type Auth } from 'firebase/auth';
 
-// ✅ Firebase 설정 완료
 const firebaseConfig = {
-  apiKey: "AIzaSyD-U3fohy5dZrtw1uz4dvL1PHk8rp9yY_E",
-  authDomain: "lunchpick-b993f.firebaseapp.com",
-  databaseURL: "https://lunchpick-b993f-default-rtdb.firebaseio.com",
-  projectId: "lunchpick-b993f",
-  storageBucket: "lunchpick-b993f.firebasestorage.app",
-  messagingSenderId: "945811468315",
-  appId: "1:945811468315:web:dc8e96307bd911502688be",
-  measurementId: "G-0WC12WSDEF"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY ?? "",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN ?? "",
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL ?? "",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID ?? "",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ?? "",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID ?? "",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID ?? "",
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID ?? "",
 };
 
 // Firebase 설정 유효성 검사
-const isConfigured = 
-  firebaseConfig.apiKey && 
-  firebaseConfig.apiKey !== "YOUR_API_KEY" && 
-  firebaseConfig.databaseURL && 
-  firebaseConfig.databaseURL.includes('firebaseio.com');
+const isConfigured = !!(
+  firebaseConfig.apiKey &&
+  firebaseConfig.databaseURL &&
+  firebaseConfig.databaseURL.includes('firebaseio.com')
+);
 
 // Firebase 초기화
 export let app: FirebaseApp | null = null;
