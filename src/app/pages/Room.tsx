@@ -21,7 +21,6 @@ import {
   getPlaceNote, subscribeToRoom, updateSavedPlace, removeVisitFromHistory,
   getUserProfile, updatePlaceNote, sendSettlementCard, leaveRoom
 } from '../store';
-import { fetchMockRestaurants } from '../mockRestaurants';
 import { searchAddress, fetchNearbyRestaurants, fetchPlaceDetail, AddressResult } from '../kakaoApi';
 import RouletteWheel from '../components/RouletteWheel';
 import RestaurantCard from '../components/RestaurantCard';
@@ -296,8 +295,7 @@ export default function RoomPage() {
     } catch (e: any) {
       console.log('fetchNearbyRestaurants error:', e);
       setFetchError(e.message ?? '음식점을 불러오지 못했습니다.');
-      const mockResults = fetchMockRestaurants(lat, lng, radiusMeters, categories);
-      setCandidates(mockResults);
+      setCandidates([]);
       setCandidatesLoaded(true);
       setTab('roulette');
     } finally {
@@ -988,6 +986,16 @@ export default function RoomPage() {
                   <><RefreshCw className="w-5 h-5" /> 카카오에서 후보 불러오기</>
                 )}
               </button>
+              {fetchError && (
+                <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2">
+                  <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm text-red-700 font-medium">음식점을 불러오지 못했습니다</p>
+                    <p className="text-xs text-red-600 mt-0.5">{fetchError}</p>
+                    <p className="text-xs text-red-500 mt-1">VITE_API_URL과 API 서버(KAKAO_REST_API_KEY) 설정을 확인하세요.</p>
+                  </div>
+                </div>
+              )}
               {!room.settings.baseLocation && (
                 <p className="text-xs text-center text-gray-400 mt-3">먼저 위에서 기준 위치를 설정하세요</p>
               )}

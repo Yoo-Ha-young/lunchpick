@@ -35,7 +35,7 @@
 
 ---
 
-## 4. Mock vs 카카오 API
+## 4. API 미연결 시
 
-- **API 미연결 시**: `fetchNearbyRestaurants` 실패 → 자동으로 Mock 데이터 사용
+- **API 미연결 시**: `fetchNearbyRestaurants` 실패 → 에러 메시지 표시, 후보 없음
 - **API 연결 후**: 실제 카카오맵 데이터로 주변 음식점 검색
