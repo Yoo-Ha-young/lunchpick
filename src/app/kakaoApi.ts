@@ -1,7 +1,7 @@
 import { Place, Category, CATEGORY_LABEL } from './types';
 
 // API URL: 별도 배포한 API 사이트 (환경변수 VITE_API_URL)
-// 예: https://lunchpick-api.netlify.app
+// 예: https://nyamnyampick-server.netlify.app
 const BASE_URL = import.meta.env.VITE_API_URL ?? '';
 
 export interface AddressResult {

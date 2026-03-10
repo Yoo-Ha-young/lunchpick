@@ -21,7 +21,7 @@
 1. Netlify에서 **새 사이트** 생성 (프론트엔드와 다른 사이트)
 2. 같은 저장소 연결, **Base directory**를 `api`로 설정
 3. **Environment variables**에 `KAKAO_REST_API_KEY` 추가
-4. 배포 후 API URL 확인 (예: `https://lunchpick-api.netlify.app`)
+4. 배포 후 API URL 확인 (예: `https://nyamnyampick-server.netlify.app`)
 
 자세한 내용은 `api/README.md` 참고.
 
@@ -31,7 +31,7 @@
 
 프론트엔드 Netlify 사이트의 **Environment variables**에 추가:
 
-- `VITE_API_URL` = API 사이트 URL (예: `https://lunchpick-api.netlify.app`)
+- `VITE_API_URL` = API 사이트 URL (예: `https://nyamnyampick-server.netlify.app`)
 
 ---
 

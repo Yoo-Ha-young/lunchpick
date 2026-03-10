@@ -37,7 +37,7 @@ npm run dev
 | Publish directory | `public` |
 | Environment variables | `KAKAO_REST_API_KEY` = 카카오 REST API 키 |
 
-배포 후 URL 예: `https://lunchpick-api.netlify.app`
+배포 후 URL 예: `https://nyamnyampick-server.netlify.app`
 
 ### 프론트엔드 사이트 (사이트 2)
 
@@ -46,7 +46,7 @@ npm run dev
 | Base directory | (비움) |
 | Build command | `npm run build` |
 | Publish directory | `dist` |
-| Environment variables | `VITE_API_URL` = API 사이트 URL (예: `https://lunchpick-api.netlify.app`) |
+| Environment variables | `VITE_API_URL` = API 사이트 URL (예: `https://nyamnyampick-server.netlify.app`) |
 
 ---
 
