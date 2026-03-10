@@ -95,7 +95,7 @@ async function handlePlaces(lat, lng, radius, categories) {
 
   for (let i = 0; i < searchKeywords.length; i++) {
     const keyword = searchKeywords[i], cat = selectedCats[i];
-    const res = await fetch(`https://dapi.kakao.com/v2/local/search/keyword.json?query=${encodeURIComponent(keyword)}&x=${lng}&y=${lat}&radius=${radius}&size=45&category_group_code=FD6`, { headers: { Authorization: `KakaoAK ${key}` } });
+    const res = await fetch(`https://dapi.kakao.com/v2/local/search/keyword.json?query=${encodeURIComponent(keyword)}&x=${lng}&y=${lat}&radius=${radius}&size=15&category_group_code=FD6`, { headers: { Authorization: `KakaoAK ${key}` } });
     if (res.ok) {
       const data = await res.json();
       const docs = data.documents || [];

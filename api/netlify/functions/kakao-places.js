@@ -63,7 +63,7 @@ export async function handler(event) {
       const keyword = searchKeywords[i];
       const cat = selectedCats[i];
       const res = await fetch(
-        `https://dapi.kakao.com/v2/local/search/keyword.json?query=${encodeURIComponent(keyword)}&x=${lng}&y=${lat}&radius=${radius}&size=45&category_group_code=FD6`,
+        `https://dapi.kakao.com/v2/local/search/keyword.json?query=${encodeURIComponent(keyword)}&x=${lng}&y=${lat}&radius=${radius}&size=15&category_group_code=FD6`,
         { headers: { Authorization: `KakaoAK ${key}` } }
       );
       if (res.ok) {
